@@ -1,0 +1,22 @@
+ 
+ %% START THE FRONTMATTER
+ %% You should not have to touch this much to make it work right.
+ %
+ \begin{frontmatter}
+ 	
+ 	%% TITLE PAGES
+ 	%
+ 	%  This command generates the title, copyright, and signature pages.
+ 	%
+ 	\makefrontmatter 
+ 	\tableofcontents
+ 	\listoffigures  % Uncomment if you have any figures
+ 	\listoftables   % Uncomment if you have any tables
+ 	
+ 	
+ 	%This is a relic from the Uark version and UCSD version that things were borrowed from.
+ 	%If list of tables or figures is used with nothing after it before \end{frontmatter}, as is the OSU style, the last list will begin arabic numbering. Placing newpage strangely does not produce a blank page, but fixes the problem.
+ 	\newpage
+ 
+ 	
+ \end{frontmatter}

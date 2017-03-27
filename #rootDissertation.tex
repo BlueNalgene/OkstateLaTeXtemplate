@@ -1,0 +1,195 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Dissertation Thesis by    %
+%        Wesley Honeycutt   %
+%                           %
+% Designed for the PhD re-  %
+% quirements at Oklahoma    %
+% State University as of    %
+% Spring 2017.              %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% This is the root document %
+% This is where you should  %
+% put any LaTeX packages,   %
+% options, and chapters.    %
+% The class for this LaTeX  %
+% document is found in the  %
+% okstate.cls file included %
+% in the directory.  The    %
+% directories for this pro- %
+% ject are arranged in the  %
+% following heirachy:       %
+%                           %
+%  chapters\                %
+%  images\                  %
+%  #rootDissertation.tex    %
+%  okstate.cls              %
+%  okstate.clo              %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% The last update to class  %
+% files and heirachy was on %
+%                           %
+%       2017-MAR-07         %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[12pt]{okstate}
+%\documentclass[12pt,demo]{okstate} %Use this class switch to ignore pictures.  This is useful to avoid long compilation times with graphics heavy dissertations.
+
+% Packages Required for this document or the OSU style
+\usepackage{fullpage}
+\usepackage{graphicx}
+\usepackage{natbib} 
+	\bibliographystyle{unsrt}
+\usepackage{titlesec}
+\usepackage{setspace}
+
+% These packages are what I personally use which are recommended for others
+%\usepackage{amsmath} % Makes pretty equations
+%\usepackage[version=3]{mhchem} % Makes pretty chemistry
+%\usepackage{url} % Prevents urls from breaking in the 
+%\usepackage{placeins} % Allows the use of \FloatBarrier when you have many figures
+%\usepackage{threeparttable} % Allows use of more complicated tables
+%\usepackage{subcaption} % ???
+%\usepackage{pdfpages} % Allows you to insert PDF images as pages/figures
+%\usepackage{listings} % Allows you to insert code, markdown
+%\usepackage{multirow} % ????
+%\usepackage[super]{nth} % Useful for ordinal numbers
+%\usepackage{siunitx} % Useful for correct use of SI units
+%\usepackage{soul} % Useful for highlighting and editing with \hl
+
+% This recommended package always goes LAST in your list.  Possibly magic.
+\usepackage{microtype}
+
+\graphicspath{ {images/} } %this removes clutter from the root folder
+
+
+
+
+
+
+
+
+%% Author's personal definitions go here
+\newcommand{\angstrom}{\textup{ \AA}} % siunitx doesn't support angstroms
+\newcommand{\degree}{$^{\circ}$} % I used this in my old tables, possibly can be replaced by siunitx options, but I'm too lazy to deal with that right now.
+
+
+
+
+%%% This is required formatting for OSU dissertations.  Do not touch.
+%Settings for the Chapter Titles
+%Requires titlesec package
+\titleformat{\chapter}[display]
+	{\normalfont\filcenter}
+	{\vspace{6.0225pc}%
+	\centering%
+	\scshape \chaptertitlename~\thechapter%
+	\vspace{3.01125pc}%
+	}{3.01125pc}{}
+
+% the date
+\date{\today}
+
+
+
+
+
+
+
+
+
+
+%%%%%%% Dissertation Specific Fields  %%%%%
+
+% No symbols, formulas, superscripts, or Greek letters are allowed in your title.
+ \title{Dissertation Title Goes Here}
+ 
+% Your name.
+\author{Pistol Pete}
+
+% The month and year the degree will be officially conferred
+\degreeyear{May 20xx}
+
+% The full (unabbreviated) name of the degree
+\degreetitle{Doctor of Philosophy}
+
+% The field your degree will be in
+\field{Mathematics}
+
+%%%%%%% Your Committee Goes Here      %%%%%
+% To match OSU's style, make sure to use the same title for each committee member if possible.  e.g. if you call one Dr., they all get called Dr. and if you call one Prof., they all get called Prof.
+%% This class only supports a fixed number of committee members right now. - WTH 2/22/17
+%% This class only does not support co-chairs right now. - WTH 2/22/17
+
+% Your advisor
+\comchair{Dr. Robert Barker}
+
+% Your other committee members
+% Use alphabetical order for these
+\comfirst{Dr. Henry E. Alvord}
+\comsecond{Dr. Edmund D. Murdaugh}
+\comthird{Dr. George E. Morrow}
+
+% Your outside committee member
+\comout{Dr. Angelo C. Scott}
+
+%%%%%%% Your Abstract Goes Here       %%%%%
+
+ \abstract{This abstract is abstract. This abstract is abstract. This abstract is abstract. This abstract is abstract. This abstract is abstract. This abstract is abstract. This abstract is abstract. This abstract is abstract. This abstract is abstract. This abstract is abstract. This abstract is abstract. This abstract is abstract. This abstract is abstract. This abstract is abstract. This abstract is abstract. }
+ 
+ %%%%%%% Your Acknowledgements Go Here %%%%%
+ 
+\acknow{Thank you to people, things, and places. Without them this thesis would be a meaningless arrangement of ink dots.}
+
+
+
+
+
+
+
+
+
+
+
+
+% The actual document
+\begin{document} 
+	
+	%This makes the titles and required pages.
+    \input{chapters/front_matter}
+
+	\chapter{Introduction}
+	\label{chap:1}
+	\input{chapters/introduction}
+	
+	\chapter{Chapter the First}
+	\label{chap:2}
+	\input{chapters/chapter02}
+	
+	\chapter{Chapter the Second}
+	\label{chap:3}
+	\input{chapters/chapter03}
+	
+	
+	\chapter{Conclusion}
+	\label{chap:c}
+	\input{chapters/conclusion}
+	
+	\bibliography{thesis}
+	
+	% Insert any appendices here
+	\appendix
+	\chapter{Sensor Board - Primary Circuit}
+	\label{appendix:1}
+	\input{chapters/appendix01}
+
+	
+	%\input{chapters/back_matter}
+	
+	
+	
+	
+	
+	
+	
+	
+\end{document}

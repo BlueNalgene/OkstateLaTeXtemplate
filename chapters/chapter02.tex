@@ -1,0 +1,18 @@
+\section{Adding Tables}
+	
+This is where your first chapter goes.  I sure like using \LaTeX, don't you?  Let's add in a table (see Table~\ref{tab:table1}).
+	
+	\begin{table}[!ht]
+		\caption{A Table to Try.}
+		\label{tab:table1}
+		\small
+		\centering
+		\begin{tabular}{c | c | c}
+			Spam   & Eggs  & Toast    \\ \hline
+			3000   & 3000  & A \\
+			100    & 100   & B \\
+			0      & 20    & C
+		\end{tabular} 
+	\end{table}
+	
+That's pretty neat.  If you look in the code, you will see that I have used the ``!ht'' option for tables and figures.  This is generally what you want to use for the dissertation.
