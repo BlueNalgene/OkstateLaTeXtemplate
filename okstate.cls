@@ -373,8 +373,8 @@
 			\vspace*{2in}
 		\addcontentsline{toc}{frontmatter}{\protect\numberline{}\acknowledgename}%
 		\centerline{\expandafter\uppercase\expandafter{\acknowledgename}}%
-		{\@acknow}
 		\end{center}
+		{\@acknow}
 	\vfill
 	{\small Acknowledgements reflect the views of the author and are not endorsed by committee members or Oklahoma State University.}
 
