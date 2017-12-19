@@ -96,8 +96,8 @@
 
 \ProcessOptions
 
+%\input uct1\@ptsize.clo\relax
 \input okstate.clo\relax
-
 
 % Set the paper size to letter
 \setlength{\paperheight}{11.0in}
@@ -216,6 +216,9 @@
 \def\comthird#1{\gdef\comthird{#1}}
 \def\comout#1{\gdef\comout{#1}}
 
+% cwid definition
+\def\cwid#1{\gdef\cwid{#1}}
+
 % The name of your committee's chair
 %\def\chair#1{\gdef\UCSD@chair{#1}}
 
@@ -287,7 +290,7 @@
 
     %\null\vfill % commented by Karol Kozioł (karol-koziol.net)
   \begin{center}
-    \vspace*{2in}
+    \vspace*{1in}
 	\textsc{\@title} \\
 	\vfill
 	By \\
@@ -337,7 +340,7 @@
     
 % added by Karol Kozioł (karol-koziol.net)
   \begin{center}
-  	\vspace*{2in}
+  	\vspace*{1in}
   	\textsc{\@title} \\
   	\vfill	
 	\begin{minipage}[b]{0.48\textwidth}
@@ -370,7 +373,7 @@
 % The acknowledgements environment creates a page and puts it in the TOC.
 {\begin{alwayssingle}
 		\begin{center}
-			\vspace*{2in}
+			\vspace*{1in}
 		\addcontentsline{toc}{frontmatter}{\protect\numberline{}\acknowledgename}%
 		\centerline{\expandafter\uppercase\expandafter{\acknowledgename}}%
 		\end{center}
@@ -385,10 +388,10 @@
 % page ii (no number shown)
 % should be double spaced. Heading is not indented. Written at top of page.
 \begin{alwayssingle}
-\thispagestyle{empty}
+%\thispagestyle{empty}
 {\parindent0pt
 \addcontentsline{toc}{frontmatter}{\protect\numberline{}Abstract}
-\vspace*{2in}
+\vspace*{1in}
 Name: \textsc{\@author}\\
 Date of Degree: \textsc{\@degreeyear}\\
 Title of Study: \textsc{\@title}\\
@@ -396,8 +399,9 @@ Major Field: \textsc{\field}\\
 Abstract: {\makeatletter
 	\let\@currsize\normalsize
 	\makeatother
-	\singlespacing
-	{\@abstract}}\\
+	{\begin{singlespace}
+	\@abstract
+	\end{singlespace}}}
 }
 \vfill
 \end{alwayssingle}
@@ -518,6 +522,55 @@ Abstract: {\makeatletter
 
 } % \makefrontmatter end
 
+% SIGNABLE COMMITTEE PAGE
+
+\def\signcom{
+	\begin{alwayssingle}
+		\begin{center}
+			Name: \@author
+			\hfill
+			CWID: \cwid\\
+			\vspace*{1in}
+			\begin{minipage}{.75\textwidth}
+				\begin{center}
+					\textsc{\@title}
+				\end{center}
+			\end{minipage}\\
+			\vspace*{1in}	
+			\begin{minipage}[b]{0.48\textwidth}
+				\hspace{15pt}
+				Dissertation Approved:\\[5pt]
+					\comchair
+				\begin{center}
+					\makebox[\textwidth]{\hrulefill}
+				\end{center}
+					Dissertation Adviser\\[0.1in]
+					\comfirst
+				\begin{center}
+					\makebox[\textwidth]{\hrulefill}\\[0.1in]
+				\end{center}
+					\comsecond
+				\begin{center}
+					\makebox[\textwidth]{\hrulefill}\\[0.1in]
+				\end{center}
+					\comthird
+				\begin{center}
+					\makebox[\textwidth]{\hrulefill}\\[0.1in]
+				\end{center}
+					\comout
+				\begin{center}
+					\makebox[\textwidth]{\hrulefill}\\
+				\end{center}
+			\end{minipage}
+			\vfill
+			\vfill
+			
+		\end{center}
+		\pagenumbering{gobble}
+	\end{alwayssingle}
+	
+}
+
 % DEDICATION
 %
 % The dedication environment just makes sure the dedication gets its
@@ -565,7 +618,74 @@ Abstract: {\makeatletter
 {}
 
 
+%    ****************************************
+%    *             OKSTATE VITA             *
+%    ****************************************
+%
 
+% OKSTATE VITA
+%  OSU requires a special vita page to be made in teh back matter of 
+%  the dissertation.  This section defines the creation of a VITA page.
+%
+% 2017-Apr-9 Created section - WTH
+
+
+%\def\vitedu#1#2{\gdef\@vitedu{#1}{#2}}
+%
+%\def\vitexp#1{\gdef\@vitexp{#1}}
+%
+%\def\vitpro#1{\gdef\@vitpro{#1}}
+
+%\newcommand{\vitedu}[2]{Make {#1} and {#2}}
+%
+%\newcommand{\cvdate}[1]{\renewcommand{\givencvdate}{#1}}
+%\newcommand{\cvcompany}[1]{\renewcommand{\givencvcompany}{#1}}
+%\newcommand{\cvposition}[1]{\renewcommand{\givencvposition}{#1}}
+%\newcommand{\cvcomment}[1]{\renewcommand{\givencvcomment}{#1}}
+%\newcommand{\givencvdate}{REQUIRED!}
+%\newcommand{\givencvcompany}{REQUIRED!}
+%\newcommand{\givencvposition}{REQUIRED!}
+%\newcommand{\givencvcomment}{} % this is optional
+%
+%\newenvironment{cvsection}
+%{\begin{flushleft}}
+%	{\textbf{\givencvdate}\      \givencvcompany\      \givencvposition
+%		\ifx\empty\givencvcomment\else\\[.5ex] \textit{\givencvcomment}\fi
+%	\end{flushleft}}
+
+
+\newcommand{\edutype}[1]{\renewcommand{\givenedutype}{#1}}
+\newcommand{\givenedutype}{}
+
+\newcommand{\okvitaedu}[6]{\noindent Completed the requirements for {#1} in {#2} at {#3}, {#4} {#5} in {#6}.\vspace{8pt}\\}
+
+\newcommand{\okvitaexp}[6]{\noindent Employed by {#1} in the position of {#2} in {#3}, {#4} from {#5} to {#6}.\vspace{8pt}\\}
+
+\newcommand{\okvitapro}[3]{\noindent {#1} of {#2} as of {#3}.\vspace{8pt}\\}
+
+\newcommand{\okstatevita}
+{\phantomsection 
+	\addcontentsline{toc}{frontmatter}{\protect\numberline{}VITA}%
+
+		\thispagestyle{empty}
+		\vspace*{1in}
+		\centerline{\expandafter\uppercase\expandafter{VITA}}%
+		\large\begin{center}
+			\@author \\
+			\vspace{8pt}
+			Candidate for the Degree of: \\
+			\vspace{8pt}
+			\@degreetitle
+		\end{center} 
+		\vspace{8pt}
+		Thesis: \textsc{\@title} 
+		\vspace{8pt}\\
+		Major Field: \field
+		\vspace{8pt}\\
+		Biographical:}
+
+% The mydedication environment has no formatting information, so the
+% user can do whatever they wish.
 
 
 

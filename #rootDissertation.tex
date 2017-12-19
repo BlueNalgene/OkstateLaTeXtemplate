@@ -28,7 +28,7 @@
 % The last update to class  %
 % files and heirachy was on %
 %                           %
-%       2017-MAR-07         %
+%       2017-DEC-17         %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \documentclass[12pt]{okstate}
@@ -36,11 +36,15 @@
 
 % Packages Required for this document or the OSU style
 \usepackage{fullpage}
+% This prints the size of the top margin in the log.
+\message{The size of the top margin is: \the\topmargin}
 \usepackage{graphicx}
 \usepackage{natbib} 
 	\bibliographystyle{unsrt}
 \usepackage{titlesec}
 \usepackage{setspace}
+\usepackage{scrextend}
+\usepackage[nottoc]{tocbibind}
 
 % These packages are what I personally use which are recommended for others
 %\usepackage{amsmath} % Makes pretty equations
@@ -77,10 +81,16 @@
 
 %%% This is required formatting for OSU dissertations.  Do not touch.
 %Settings for the Chapter Titles
+
+% We use the top margin to make the correct size spacing for new chapters
+% According to the OKSTATE style, the chapter number should be 2 inches from the
+% top of the page.  Since I haven't figured out how to do math inside of size 
+% options such as \vspace, I need to do this manually.  
+% 2 in = 6.0225pc
 %Requires titlesec package
 \titleformat{\chapter}[display]
 	{\normalfont\filcenter}
-	{\vspace{6.0225pc}%
+	{\vspace{0pc}% %This should be 2in, but it this works with the class.
 	\centering%
 	\scshape \chaptertitlename~\thechapter%
 	\vspace{3.01125pc}%
@@ -90,8 +100,11 @@
 \date{\today}
 
 
-
-
+%
+%1. Missing Roman numeral page iv from abstract. 
+%2. Please include what page the Bibliography starts in your table of contents. 
+%3. Since you have more than one appendix, you also need to include a page that states 
+%Appendices. 
 
 
 
@@ -107,13 +120,16 @@
 \author{Pistol Pete}
 
 % The month and year the degree will be officially conferred
-\degreeyear{May 20xx}
+\degreeyear{May 2017}
 
 % The full (unabbreviated) name of the degree
 \degreetitle{Doctor of Philosophy}
 
 % The field your degree will be in
 \field{Mathematics}
+
+% Your CWID
+\cwid{10101010}
 
 %%%%%%% Your Committee Goes Here      %%%%%
 % To match OSU's style, make sure to use the same title for each committee member if possible.  e.g. if you call one Dr., they all get called Dr. and if you call one Prof., they all get called Prof.
@@ -139,6 +155,8 @@
  %%%%%%% Your Acknowledgements Go Here %%%%%
  
 \acknow{Thank you to people, things, and places. Without them this thesis would be a meaningless arrangement of ink dots.}
+	
+	
 
 
 
@@ -152,11 +170,12 @@
 
 
 % The actual document
+
 \begin{document} 
 	
 	%This makes the titles and required pages.
-    \input{chapters/front_matter}
-
+	\input{chapters/front_matter}
+	
 	\chapter{Introduction}
 	\label{chap:1}
 	\input{chapters/introduction}
@@ -173,23 +192,30 @@
 	\chapter{Conclusion}
 	\label{chap:c}
 	\input{chapters/conclusion}
+
 	
+	\addcontentsline{toc}{section}{Bibliography}
 	\bibliography{thesis}
 	
 	% Insert any appendices here
 	\appendix
-	\chapter{Sensor Board - Primary Circuit}
+	\chapter{An Appendix Explained}
 	\label{appendix:1}
 	\input{chapters/appendix01}
+	
 
+	\input{chapters/back_matter}
 	
-	%\input{chapters/back_matter}
-	
-	
-	
-	
+	% This is the signable committee approval page.  You only need this once to give to the grad college, otherwise comment it out (%)
+	%\signcom
 	
 	
 	
 	
+	
+	
+	
+	
+
+
 \end{document}
