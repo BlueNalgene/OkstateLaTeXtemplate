@@ -339,10 +339,10 @@
         \addcontentsline{toc}{chapter}{#1}
    \fi
    \chaptermark{#1}%
-   \addtocontents{lof}%
-       {\protect\addvspace{10\p@}}% Adds between-chapter space
-   \addtocontents{lot}%
-       {\protect\addvspace{10\p@}}% to lists of figs & tables.
+%   \addtocontents{lof}%
+%       {\protect\addvspace{10\p@}}% Adds between-chapter space
+%   \addtocontents{lot}%
+%       {\protect\addvspace{10\p@}}% to lists of figs & tables.
    \if@twocolumn                  % Tests for two-column mode.  
            \@topnewpage[\@makechapterhead{#2}]%
      \else \@makechapterhead{#2}%

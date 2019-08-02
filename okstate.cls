@@ -1067,7 +1067,8 @@ Abstract: {\makeatletter
 % From ucsd-thesis.sty (WBB), modified 
   \newpage
   \phantomsection
-  \addcontentsline{toc}{frontmatter}{\protect\numberline{}\contentslongname}%
+  {\vspace*{1in}}
+%  \addcontentsline{toc}{frontmatter}{\protect\numberline{}\contentslongname}%
   \centerline{\expandafter\uppercase\expandafter{\contentslongname}}%
   \bigskip%
 %  \chapter*{\contentsname
@@ -1165,7 +1166,7 @@ Abstract: {\makeatletter
   \centerline{\expandafter\uppercase\expandafter{\listfigurename}}%
   \bigskip%
   \phantomsection%
-  \addcontentsline{toc}{frontmatter}{\protect\numberline{}\listfigurename }%
+%  \addcontentsline{toc}{frontmatter}{\protect\numberline{}\listfigurename }%
   %This group overloads \numberline to output ``Figure 1.3'' instead of ``1.3''
   \begingroup%
     \let\ORIG@numberline\numberline%
@@ -1192,7 +1193,7 @@ Abstract: {\makeatletter
   \centerline{\expandafter\uppercase\expandafter{\listtablename}}%
   \bigskip%
   \phantomsection%
-  \addcontentsline{toc}{frontmatter}{\protect\numberline{}\listtablename }%
+%  \addcontentsline{toc}{frontmatter}{\protect\numberline{}\listtablename }%
   % This group overloads \numberline to output ``Table 1.3'' instead of ``1.3''
   \begingroup%
     \let\ORIG@numberline\numberline%
